@@ -287,3 +287,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,node,intellij+iml
+
+src/environments/environment.ts

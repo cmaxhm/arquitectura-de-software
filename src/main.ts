@@ -1,8 +1,13 @@
-import e, { Express } from "express";
+import e, { Express, json } from "express";
+import { connect } from "mongoose";
+import { environment } from "./environments/environment";
 import { mainRouter } from "./main.router";
 
 const app: Express = e();
 const port: number = 3000;
 
+app.use(json());
 mainRouter(app);
-app.listen(port, () => console.log(`Server running on port ${port}`));
+connect(environment.apiUrl).then(() => {
+  app.listen(port, () => console.log(`Server running on port ${ port }`));
+});
