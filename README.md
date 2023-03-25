@@ -39,6 +39,36 @@ Run the project:
 npm run start
 ```
 
+### ✨ How to use it
+
+This API has 1 endpoint: `/users`, which has the following methods:
+
+`GET` /users: Get all users
+
+`POST` /users: Create a new user (send the fields in the body), e.g:
+```json
+{
+  "name": "John Doe",
+  "email": "email@email.com",
+  "age": 20
+}
+```
+
+`PATCH` /users: Update user by id, send the fields you want to update in the body along with the id, e.g:
+```json
+{
+  "_id": "60f9b9f9f9f9f9f9f9f9f9f9",
+  "name": "John Doe"
+}
+```
+
+`DELETE` /users: Delete user by id, send the _id to select and delete, e.g:
+```json
+{
+  "_id": "60f9b9f9f9f9f9f9f9f9f9f9"
+}
+```
+
 ### 😀 Authors
 
 - Carlos Castillo
