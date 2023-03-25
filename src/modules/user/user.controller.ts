@@ -19,3 +19,7 @@ export const saveUser = (request: Request): Promise<User> => {
 export const editUser = async (request: Request): Promise<User | null> => {
   return UserModel.findOneAndUpdate<User>({ _id: request.body._id }, { ...request.body });
 };
+
+export const deleteUser = async (request: Request): Promise<User | null> => {
+  return UserModel.findOneAndDelete<User>({ _id: request.body._id });
+};

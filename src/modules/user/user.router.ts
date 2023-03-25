@@ -1,6 +1,6 @@
 import e, { Request, Response, Router } from "express";
 import { errorResponse, successMessage } from "../../main.responses";
-import { editUser, getAllUsers, saveUser } from "./user.controller";
+import { deleteUser, editUser, getAllUsers, saveUser } from "./user.controller";
 import { User } from "./user.model";
 
 export const userRouter: Router = e.Router();
@@ -36,5 +36,11 @@ userRouter.patch('/', (request: Request, response: Response) => {
 });
 
 userRouter.delete('/', (request: Request, response: Response) => {
-  //
+  deleteUser(request)
+    .then((result: User | null) => {
+      successMessage(response, result, 200, request.body);
+    })
+    .catch((error: Error) => {
+      errorResponse(response, error, 406, request.body);
+    });
 });
